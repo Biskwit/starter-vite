@@ -1,29 +1,23 @@
-import type { InjectionKey } from 'vue';
-import { createStore } from 'vuex';
-import type { Store } from 'vuex';
-import createPersistedState from "vuex-persistedstate"
+import { defineStore } from "pinia";
 
-export interface State {
+export type RootState = {
     authToken: string;
     logged: boolean;
-}
+};
 
-export const key: InjectionKey<Store<State>> = Symbol();
-
-export const store = createStore<State>({
-    state: {
+export const store = defineStore({
+    id: "main",
+    state: () => ({
         authToken: "",
-        logged: false,
-    },
-    mutations: {
-        setAuthToken(state, newToken) {
-            state.authToken = newToken
+        logged: false
+    } as RootState),
+    actions: {
+        setAuthToken(newToken: string) {
+            this.authToken = newToken
         },
-        setLogged(state, val) {
-            state.logged = val
+        setLogged(val : boolean) {
+            this.logged = val
         }
     },
-    plugins: [createPersistedState({
-        storage: window.localStorage,
-    })],
+    persist: true
 });
