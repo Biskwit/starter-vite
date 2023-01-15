@@ -10,13 +10,13 @@
   "dependencies": {
     "daisyui": "^2.46.1",
     "naive-ui": "^2.34.3",
+    "pinia": "^2.0.28",
+    "pinia-plugin-persistedstate": "^3.0.2",
     "redaxios": "^0.5.1",
     "tailwindcss": "^3.0.23",
     "unique-names-generator": "^4.7.1",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.12",
-    "vuex": "^4.0.2",
-    "vuex-persistedstate": "^4.1.0"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
